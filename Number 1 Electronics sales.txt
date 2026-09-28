@@ -1,0 +1,52 @@
+import java.util.Scanner;
+  public class Number1ElectronicsReport {
+    public static void main(String[] args) {
+     Scanner input = new Scanner(System.in);
+   // 1. Declare and initialise city names
+ String[] cities = {"Cape Town", "Port Elizabeth", "Pretoria"};
+ // 2. Declare 2D array: [city][0 = PS5, 1 = XBOX, 2 = SWITCH]
+ int[][] sales = new int[3][2];
+ // 3. Input loop
+ for (int i = 0; i < cities.length; i++) {
+ System.out.print("Enter the number of sales for PS5 " 
++ cities[i] + ": ");
+ sales[i][0] = input.nextInt();
+ System.out.print("Enter the number of sales 
+for XBOX" + cities[i] + ": ");
+ sales[i][1] = input.nextInt();
+ System.out.print("Enter the number of sales 
+for SWITCH" + cities[i] + ": ");
+ sales[i][1] = input.nextInt();
+ }
+ // 4. Print report header
+ System.out.println("\n1ELECTRONIC REPORT");
+ System.out.println("PS5\tXBOX\tSWITCH");
+ // 5. Print each city and its two values
+ for (int i = 0; i < cities.length; i++) {
+ System.out.println(cities[i] + "\t" + sales[i][0] + 
+"\t" + sales[i][1]);
+ }
+ // 6. Calculate totals per city
+ int[] cityTotals = new int[3];
+ for (int i = 0; i < cities.length; i++) {
+ cityTotals[i] = sales[i][0] + sales[i][1];
+ }
+ // 7. Print totals per city
+ System.out.println("\nElectronic sale TOTALS FOR EACH CITY");
+ for (int i = 0; i < cities.length; i++) {
+ System.out.println(cities[i] + "\t" + cityTotals[i]);
+ }
+ // 8. Find city with most gaming console sales
+ String worstCity = cities[0];
+ int worstTotal = cityTotals[0];
+ for (int i = 1; i < cities.length; i++) {
+ if (cityTotals[i] > worstTotal) {
+ worstTotal = cityTotals[i];
+ worstCity = cities[i];
+ }
+ }
+ // 9. Display result
+ System.out.println("\nCITY WITH THE MOST GAMING CONSOLE SALES: " 
++ worstCity);
+ }
+}
