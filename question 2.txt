@@ -1,69 +1,105 @@
-2.1 Interface – IConsoles
-public interface IConsoles {
- String getConsoleType();
- String getstore();
- int getTotalSales();
-}
-2.2 Abstract Class – ConsoleSales
-public abstract class ConsoleSales implements IConsoles {
- private String ConsoleType;
- private String store;
- private int total;
- // Constructor
- public ConsoleSales(String ConsoleType, String store, int total) {
- this.ConsoleType = ConsoleType;
- this.store = store;
- this.total = total;
- }
- // Implement interface methods
- @Override
- public String getConsoleType() {
- return consoleType;
- }
- @Override
- public String getStore() {
- return store;
- }
- @Override
- public int getTotalSales() {
- return total;
- }
-}Number 1 Electronic store Report
-public class Number 1 Electronic store Report extends TotalSales {
- // Constructor
-2.3 Subclass – 
- public Number 1 Electronic Report(String ConsoleType, String city, int 
-total) {
- super(ConsoleType, city, total);
- }
- // Print method
- public void printNumber1ElectronicStoreReport() {
- System.out.println("Number 1 Electronic store REPORT");
- System.out.println("************************");
- System.out.println("CONSOLE TYPE: " + 
-getAccidentVehicleType());
- System.out.println("CITY: " + getCity());
- System.out.println("SALES TOTAL: " + getTotalSales());
- System.out.println("************************");
- }
-}
-2.4 Run Application
-import java.util.Scanner;
-public class RunApplication {
- public static void main(String[] args) {
- Scanner input = new Scanner(System.in);
- System.out.print("Enter the Console type: ");
- String type = input.nextLine();
- System.out.print("Enter the city for the console: 
-");
- String city = input.nextLine();
- System.out.print("Enter the total " + type + " sales for " 
-+ city + ": ");
- int total = input.nextInt();
- // Instantiate the subclass
- Number1ElectronicStoreReport report = new Number1ElectronicStoreReport(type, city, 
-total);
- // Call the print method
- report.printNumber1ElectronicStoreReport();
- }
-}
+2.1   public interface IConsoles { 
+
+    String getConsoleType(); 
+
+    String getStore(); 
+
+    int getTotalSales(); 
+
+} 
+
+2.2 public abstract class ConsoleSales implements IConsoles { 
+
+    private String consoleType; 
+
+    private String store; 
+
+    private int total; 
+
+  
+
+    public ConsoleSales(String consoleType, String store, int total) { 
+
+        this.consoleType = consoleType; 
+
+        this.store = store; 
+
+        this.total = total; 
+
+    } 
+
+  
+
+    @Override 
+
+    public String getConsoleType() { return consoleType; } 
+
+  
+
+    @Override 
+
+    public String getStore() { return store; } 
+
+  
+
+    @Override 
+
+    public int getTotalSales() { return total; } 
+
+} 
+
+2.3 public class Number1ElectronicReport extends ConsoleSales { 
+
+public Number1ElectronicReport(String consoleType, String store, int total) { 
+    super(consoleType, store, total); 
+} 
+ 
+public void printNumber1ElectronicStoreReport() { 
+    System.out.println("NUMBER 1 ELECTRONIC STORE REPORT"); 
+    System.out.println("************************"); 
+    System.out.println("CONSOLE TYPE: " + getConsoleType()); 
+    System.out.println("STORE: " + getStore()); 
+    System.out.println("SALES TOTAL: " + getTotalSales()); 
+    System.out.println("************************"); 
+} 
+  
+
+} 
+
+2.4  import java.util.Scanner; 
+
+  
+
+public class RunApplication { 
+
+    public static void main(String[] args) { 
+
+        Scanner input = new Scanner(System.in); 
+
+  
+
+        System.out.print("Enter the console type: "); 
+
+        String type = input.nextLine(); 
+
+  
+
+        System.out.print("Enter the store for the console: "); 
+
+        String store = input.nextLine(); 
+
+  
+
+        System.out.print("Enter the total " + type + " sales for " + store + ": "); 
+
+        int total = input.nextInt(); 
+
+  
+
+        Number1ElectronicReport report = new Number1ElectronicReport(type, store, total); 
+
+        report.printNumber1ElectronicStoreReport(); 
+
+    } 
+
+} 
